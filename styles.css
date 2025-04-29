@@ -1,0 +1,55 @@
+:root{
+    --bgcolor: #ffffff;
+    --menu_item__bgcolor: var(--bgcolor)
+}
+
+body {
+    background: var(--bgcolor);
+}
+
+.menu,
+.menu-item,
+.menu-item_back,
+.menu-item_fore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu {
+    position: fixed;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-family: "Montserrat", sans-serif; font-weight: 800;
+}
+
+.menu-item, .menu-item_back, .menu-item_fore {
+    height: 30px; width: 85px;
+    border-radius: 50px;
+}
+
+.menu-item:hover{
+    --menu_item__bgcolor: yellow;
+}
+
+.menu-item_fore{
+    background: var(--menu_item__bgcolor);
+    height: 25px; width: 80px;
+}
+
+.menu-item_back:hover {
+    background: conic-gradient(from 0deg, currentColor 0deg, currentColor var(--theta), transparent var(--theta));
+    animation: border-animation_0 0.5s ease forwards;
+}
+
+@property --theta {
+    syntax: "<angle>";
+    initial-value: 40deg;
+    inherits: false;
+}
+
+@keyframes border-animation_0 {
+    from{--theta: 40deg}
+    to{--theta: 360deg}
+}
